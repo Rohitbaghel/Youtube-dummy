@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <title>YouTube</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Oswald", sans-serif;
+      }
+      body {
+        background-color: #212121;
+      }
+      hr {
+        background-color: #464646;
+        height: 1px;
+        border: none;
+      }
+      h1 {
+        color: #fff;
+        padding-left: 3rem;
+      }
+      #navbar {
+        background-color: #212121;
+        height: 100px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        position: sticky;
+      }
+      .menu-bars {
+        margin-left: 2rem;
+        font-size: 2rem;
+        color: #fff;
+      }
+      #nav-menu {
+        background-color: #212121;
+        width: 250px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        transition: 850ms;
+      }
+      #nav-menu :active {
+        left: 0;
+        transition: 350ms;
+      }
+      .nav-text {
+        display: flex;
+        justify-content: start;
+        list-style: none;
+        height: 50px;
+        padding: 1rem;
+      }
+      .nav-text a {
+        text-decoration: none;
+        color: #f5f5f5;
+        font-size: 1.2rem;
+        margin-left: 1rem;
+      }
+      .nav-text:hover {
+        background-color: rgba(144, 144, 144, 0.219);
+        cursor: pointer;
+      }
+      .nav-text-items {
+        width: 100%;
+      }
+      .nav-icon {
+        padding-left: 1rem;
+        color: #989898;
+      }
+      #youtube-logo {
+        color: #f90201;
+        padding-right: 0.2rem;
+      }
+      #navbar-toggle {
+        background-color: #212121;
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+      }
+      #navbar-toggle h1 {
+        color: #fff;
+        font-family: "Oswald", sans-serif;
+      }
+      #navbar-toggle a {
+        text-decoration: none;
+      }
+      .fa-bars {
+        color: #fff;
+      }
+      .nav-section {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      #navbar input {
+        margin-left: 12%;
+        padding: 0.8rem;
+        max-width: 100%;
+        width: 40%;
+        height: 47px;
+        background-color: black;
+        border: none;
+        font-size: 26px;
+        color: #fff;
+      }
+      .fa-search:before {
+        content: "\f002";
+        /* size: 41px; */
+        font-size: 29px;
+      }
+      #navbar button {
+        padding: 0.6rem;
+        width: 4%;
+        background-color: #ffffff14;
+        border: none;
+        color: #fff;
+      }
+      .mp {
+        padding: 0.6rem;
+        width: 4%;
+        background-color: #ffffff14;
+        border: none;
+        color: #fff;
+        border-radius: 50%;
+        height: 55px;
+        margin-left: 1%;
+      }
+      .fa-microphone:before {
+        content: "\f130";
+        /* height: 21px; */
+        font-size: 24px;
+      }
+      .fa-video:before {
+        content: "\f03d";
+        font-size: 25px;
+        color: #fff;
+        margin-left: 262%;
+      }
+      .fa-bell:before {
+        content: "\f0f3";
+        font-size: 25px;
+        color: #fff;
+        margin-left: 470%;
+      }
+      .fa-th:before {
+        content: "\f00a";
+        font-size: 25px;
+        color: #fff;
+        margin-left: 517%;
+      }
+      .fa-sign-in-alt:before {
+        content: "\f2f6";
+        font-size: 25px;
+        color: #fff;
+        margin-left: 667%;
+      }
+
+      #videos {
+        display: grid;
+        grid-template-columns: repeat(4, 24%);
+        gap: 2%;
+      }
+      #main{
+        display: grid;
+        grid-template-columns: repeat(4, 24%);
+        gap: 2%;
+      }
+      #box {
+        width: 77%;
+        margin-left: 20%;
+        margin-top: 1%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <a href="" class="menu-bars" id="show-menu">
+        <i class="fas fa-bars"></i>
+      </a>
+      <h1><i class="fab fa-youtube" id="youtube-logo"></i>YouTube</h1>
+      <input type="text" id="video" placeholder="Search" />
+      <button onclick="searchVideos()"><i class="fas fa-search"></i></button>
+      <button class="mp"><i class="fas fa-microphone"></i></button>
+      <i class="fas fa-video"></i>
+      <i class="fas fa-bell"></i>
+      <i class="fas fa-th"></i>
+      <i class="fas fa-sign-in-alt"></i>
+    </div>
+    <nav id="nav-menu">
+      <ul class="nav-menu-items">
+        <div id="navbar-toggle">
+          <a href="" class="menu-bars" id="hide-menu">
+            <i class="fas fa-bars nav-icon"></i>
+          </a>
+          <a href=""
+            ><h1><i class="fab fa-youtube" id="youtube-logo"></i>YouTube</h1></a
+          >
+        </div>
+        <hr />
+        <div class="nav-section">
+          <li class="nav-text">
+            <a href=""><i class="fas fa-home nav-icon"></i>Home</a>
+          </li>
+          <li class="nav-text">
+            <a href=""><i class="fas fa-fire nav-icon"></i>Trending</a>
+          </li>
+          <li class="nav-text">
+            <a href=""><i class="fab fa-youtube nav-icon"></i>Subscribe</a>
+          </li>
+        </div>
+        <hr />
+        <div class="nav-section">
+          <li class="nav-text">
+            <a href=""><i class="fas fa-play-circle nav-icon"></i>Library</a>
+          </li>
+          <li class="nav-text">
+            <a href=""><i class="fas fa-history nav-icon"></i>History</a>
+          </li>
+          <li class="nav-text">
+            <a href=""><i class="fas fa-clock nav-icon"></i>Watch later</a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+    <hr />
+    <div id="box">
+      <div id="main"></div>
+      <div id="videos"></div>
+    </div>
+  </body>
+  <script>
+      let container = document.getElementById('videos')
+      async function popularVideos(){
+let res = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=IN&key=AIzaSyBOTsoCrg9f49gUZEqgoB3akJuwmlzh_CI&maxResults=50`)
+
+let data = await res.json()
+console.log(data.items)
+appendPopular(data.items)
+}
+function appendPopular(data) {
+data.forEach(({id})=>{
+let videos_div = document.createElement('div')
+videos_div.innerHTML = `<iframe width="360" height="315" src="https://www.youtube.com/embed/${id}"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+container.append(videos_div)
+});
+}
+popularVideos()
+  </script>
